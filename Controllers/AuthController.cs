@@ -52,5 +52,43 @@ namespace Pizzeria.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(Register model)
+        {
+            if (ModelState.IsValid)
+            {
+                var existingUser = db.Users.FirstOrDefault(u => u.Email == model.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("", "Email già registrata.");
+                    return View(model);
+                }
+
+                var newUser = new Users
+                {
+                    Nome = model.Nome,
+                    Email = model.Email,
+                    Password = model.Password,
+                    Ruolo = "Ospite" 
+                };
+
+                db.Users.Add(newUser);
+                db.SaveChanges();
+
+                TempData["RegistrationSuccess"] = true;
+                return RedirectToAction("Login");
+            }
+
+            return View(model);
+        }
+
     }
 }

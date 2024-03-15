@@ -1,0 +1,37 @@
+﻿@model Pizzeria.Models.Prodotti
+
+@{
+    ViewBag.Title = "Modifica Pizza";
+}
+
+<h2>Modifica Pizza</h2>
+
+@using (Html.BeginForm("SalvaPizza", "Pizza", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome)
+        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Nome)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Ingredienti)
+        @Html.TextAreaFor(model => model.Ingredienti, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Ingredienti)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Prezzo)
+        @Html.TextBoxFor(model => model.Prezzo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Prezzo)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Foto)
+        @Html.TextBoxFor(model => model.Foto, new { type = "file", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Foto)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salva</button>
+}

@@ -175,6 +175,7 @@
     <Compile Include="Models\DettaglioOrdine.cs" />
     <Compile Include="Models\Ordini.cs" />
     <Compile Include="Models\Prodotti.cs" />
+    <Compile Include="Models\Register.cs" />
     <Compile Include="Models\RoleManager.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -197,6 +198,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\images\pizza.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -250,10 +252,14 @@
     <Content Include="Views\Utenti\UsersPage.cshtml" />
     <Content Include="Views\Auth\Logout.cshtml" />
     <Content Include="Views\Pizza\Index.cshtml" />
+    <Content Include="Views\Carrello\Index.cshtml" />
+    <Content Include="Views\Carrello\RimuoviDalCarrello.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Pizza\AggiungiPizza.cshtml" />
+    <Content Include="Views\Pizza\ModificaPizza.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Carrello\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />
